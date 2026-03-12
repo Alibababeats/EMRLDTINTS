@@ -1,0 +1,13 @@
+BRAND LOGO REFERENCES:
+
+UVIRON - High performance carbon window film
+Logo URL: Provided by user (save as uviron.png)
+
+Geoshield - Premium ceramic window film  
+Logo URL: Provided by user (save as geoshield.png)
+
+INSTRUCTIONS:
+1. Save the UVIRON logo image as: public/brands/uviron.png
+2. Save the Geoshield logo image as: public/brands/geoshield.png
+
+These files were provided by the user and need to be placed in the public/brands folder.

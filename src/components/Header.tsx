@@ -10,10 +10,10 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass-card rounded-none border-x-0 border-t-0">
       <div className="container-main">
-        <nav className="flex items-center justify-between h-20">
+        <nav className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative h-14 w-24 sm:h-16 sm:w-28 md:w-32">
+            <div className="relative h-16 w-28 sm:h-[72px] sm:w-[132px] md:h-[76px] md:w-[148px]">
               <Image
                 src="/emrldlogomasked.png"
                 alt="Emerald Window Tinting"
@@ -21,7 +21,7 @@ export default function Header() {
                 className="object-contain"
               />
             </div>
-            <span className="font-hatton text-sm sm:text-base md:text-xl font-bold leading-tight">
+            <span className="font-hatton text-sm sm:text-lg md:text-2xl font-bold leading-tight">
               Emerald <span className="text-emerald">Window Tinting</span>
             </span>
           </Link>

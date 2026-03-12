@@ -11,23 +11,23 @@ export default function ContactForm() {
 
     const form = e.currentTarget
     const formData = new FormData(form)
-    
-    // For now, we'll just simulate a submission
-    // Replace with actual form handling (Formspree, Netlify Forms, etc.)
+
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      // In production, you'd send to an endpoint:
-      // await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-      //   method: 'POST',
-      //   body: formData,
-      //   headers: { 'Accept': 'application/json' },
-      // })
-      
+      const payload = Object.fromEntries(formData.entries())
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form')
+      }
+
       setStatus('success')
       form.reset()
-    } catch (error) {
+    } catch {
       setStatus('error')
     }
   }
@@ -107,28 +107,63 @@ export default function ContactForm() {
         </select>
       </div>
 
-      <div>
-        <label htmlFor="vehicle" className="block text-sm font-medium mb-2">
-          Vehicle Info *
-        </label>
-        <input
-          type="text"
-          id="vehicle"
-          name="vehicle"
-          required
-          className="w-full px-4 py-3 bg-emerald/10 border border-emerald/30 text-white placeholder-white/40 rounded-lg focus:border-emerald focus:outline-none transition-colors"
-          placeholder="Year, Make, Model (e.g., 2024 BMW M4)"
-        />
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div>
+          <label htmlFor="year" className="block text-sm font-medium mb-2">
+            Year *
+          </label>
+          <input
+            type="text"
+            id="year"
+            name="year"
+            required
+            inputMode="numeric"
+            pattern="[0-9]{4}"
+            minLength={4}
+            maxLength={4}
+            className="w-full px-4 py-3 bg-emerald/10 border border-emerald/30 text-white placeholder-white/40 rounded-lg focus:border-emerald focus:outline-none transition-colors"
+            placeholder="2024"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="make" className="block text-sm font-medium mb-2">
+            Make *
+          </label>
+          <input
+            type="text"
+            id="make"
+            name="make"
+            required
+            className="w-full px-4 py-3 bg-emerald/10 border border-emerald/30 text-white placeholder-white/40 rounded-lg focus:border-emerald focus:outline-none transition-colors"
+            placeholder="BMW"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="model" className="block text-sm font-medium mb-2">
+            Model *
+          </label>
+          <input
+            type="text"
+            id="model"
+            name="model"
+            required
+            className="w-full px-4 py-3 bg-emerald/10 border border-emerald/30 text-white placeholder-white/40 rounded-lg focus:border-emerald focus:outline-none transition-colors"
+            placeholder="M4"
+          />
+        </div>
       </div>
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2">
-          Message
+          Message *
         </label>
         <textarea
           id="message"
           name="message"
           rows={4}
+          required
           className="w-full px-4 py-3 bg-emerald/10 border border-emerald/30 text-white placeholder-white/40 rounded-lg focus:border-emerald focus:outline-none transition-colors resize-none"
           placeholder="Tell us about your project..."
         />

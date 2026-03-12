@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="relative h-12 w-24 sm:h-14 sm:w-28">
+              <div className="relative h-14 w-28 sm:h-16 sm:w-32 md:h-[72px] md:w-[136px]">
                 <Image
                   src="/emrldlogomasked.png"
                   alt="Emerald Window Tinting"
@@ -17,7 +17,7 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="font-hatton text-xl font-bold">
+              <span className="font-hatton text-2xl font-bold">
                 Emerald<span className="text-emerald">.</span>
               </span>
             </Link>

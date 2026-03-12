@@ -121,23 +121,45 @@ export default function Testimonials() {
           ref={contentRef}
           className="scroll-content"
         >
-          {/* Double the reviews for seamless loop */}
-          {[...reviews, ...reviews].map((review, i) => (
-            <div
-              key={i}
-              className="glass-card p-6 min-w-[320px] max-w-[320px] flex-shrink-0"
-            >
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: review.rating }).map((_, j) => (
-                  <span key={j} className="text-emerald">★</span>
-                ))}
+          {/* Track A */}
+          <div className="scroll-track" aria-hidden="false">
+            {reviews.map((review, i) => (
+              <div
+                key={`a-${review.name}-${i}`}
+                className="glass-card p-6 min-w-[320px] max-w-[320px] flex-shrink-0"
+              >
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: review.rating }).map((_, j) => (
+                    <span key={j} className="text-emerald">★</span>
+                  ))}
+                </div>
+                <p className="text-muted text-sm mb-4 leading-relaxed">
+                  "{review.text}"
+                </p>
+                <p className="font-semibold text-sm">{review.name}</p>
               </div>
-              <p className="text-muted text-sm mb-4 leading-relaxed">
-                "{review.text}"
-              </p>
-              <p className="font-semibold text-sm">{review.name}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Track B (duplicate for seamless loop) */}
+          <div className="scroll-track" aria-hidden="true">
+            {reviews.map((review, i) => (
+              <div
+                key={`b-${review.name}-${i}`}
+                className="glass-card p-6 min-w-[320px] max-w-[320px] flex-shrink-0"
+              >
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: review.rating }).map((_, j) => (
+                    <span key={j} className="text-emerald">★</span>
+                  ))}
+                </div>
+                <p className="text-muted text-sm mb-4 leading-relaxed">
+                  "{review.text}"
+                </p>
+                <p className="font-semibold text-sm">{review.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

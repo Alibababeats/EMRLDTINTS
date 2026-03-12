@@ -84,12 +84,33 @@
   }
 
   .scroll-content {
-    @apply flex gap-6 animate-scroll-left;
+    @apply flex w-max;
+    animation: testimonials-scroll 42s linear infinite;
+    will-change: transform;
+  }
+
+  .scroll-track {
+    @apply flex gap-6 pr-6;
+  }
+
+  @media (max-width: 768px) {
+    .scroll-content {
+      animation-duration: 34s;
+    }
   }
 
   .scroll-container:hover .scroll-content,
   .scroll-container:active .scroll-content {
     animation-play-state: paused;
+  }
+
+  @keyframes testimonials-scroll {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
   }
 
   /* Intersection Observer animation classes */

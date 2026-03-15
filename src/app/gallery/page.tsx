@@ -13,7 +13,6 @@ const galleryItems = [
   { src: '/gallery/bmwx7.jpg', alt: 'BMW X7 with premium ceramic window tint', wide: false },
   { src: '/gallery/vette1.jpg', alt: 'Corvette with ceramic window tint', wide: false },
   { src: '/gallery/brz4.jpg', alt: 'Subaru BRZ with premium window tint', wide: false },
-  { src: '/gallery/rolla1.jpg', alt: 'Toyota Corolla window tinting detail', wide: false },
   { src: '/gallery/bmw2seiries.jpg', alt: 'BMW 2 Series professional window tinting', wide: false },
   { src: '/gallery/bmwx7_2.jpg', alt: 'BMW X7 luxury tint finish', wide: false },
   { src: '/gallery/bmwx7_3.jpg', alt: 'BMW X7 ceramic tint quality', wide: false },

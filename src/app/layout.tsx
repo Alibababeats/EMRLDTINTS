@@ -3,6 +3,7 @@ import { Josefin_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import SmoothScroll from '@/components/SmoothScroll'
 
 const josefin = Josefin_Sans({ subsets: ['latin'], variable: '--font-josefin', weight: ['300', '400', '600', '700'] })
 
@@ -26,11 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={josefin.variable}>
       <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScroll>
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   )

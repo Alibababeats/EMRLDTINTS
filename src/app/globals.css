@@ -85,18 +85,12 @@
 
   .scroll-content {
     @apply flex w-max;
-    animation: testimonials-scroll 42s linear infinite;
+    animation: testimonials-scroll 80s linear infinite;
     will-change: transform;
   }
 
   .scroll-track {
     @apply flex gap-6 pr-6;
-  }
-
-  @media (max-width: 768px) {
-    .scroll-content {
-      animation-duration: 34s;
-    }
   }
 
   .scroll-container:hover .scroll-content,

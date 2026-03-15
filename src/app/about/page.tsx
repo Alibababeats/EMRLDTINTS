@@ -30,9 +30,16 @@ export default function About() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-emerald/5 to-transparent" />
-        <div className="container-main relative">
+      <section className="pt-32 pb-20 relative min-h-[400px] flex items-center">
+        <Image
+          src="/gallery/bmwx7.jpg"
+          alt="BMW X7 Window Tinting"
+          fill
+          className="object-cover absolute inset-0 z-0 opacity-40"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black z-[1]" />
+        <div className="container-main relative z-10 w-full">
           <Link href="/" className="text-muted text-sm hover:text-white transition-colors mb-4 inline-block">
             ← Back to Home
           </Link>
@@ -57,8 +64,7 @@ export default function About() {
                   and premium results.
                 </p>
                 <p>
-                  We use only the best ceramic and carbon films — PureMax Supreme Carbon 
-                  and KOOLMAX Supreme Ceramic — because your vehicle deserves nothing less.
+                  We use only the best ceramic and carbon films because your vehicle deserves nothing less.
                 </p>
                 <p>
                   No shortcuts. No compromises. Just clean, professional tinting that transforms 

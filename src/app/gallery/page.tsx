@@ -9,21 +9,37 @@ export const metadata: Metadata = {
 
 // Gallery images - add more as they become available
 const galleryItems = [
-  { src: '/gallery/bmwx7.jpg', alt: 'BMW X7 with premium ceramic window tint', wide: true },
+  { src: '/gallery/amg.jpg', alt: 'Mercedes AMG with premium tint', wide: false },
+  { src: '/gallery/bmwx7.jpg', alt: 'BMW X7 with premium ceramic window tint', wide: false },
   { src: '/gallery/vette1.jpg', alt: 'Corvette with ceramic window tint', wide: false },
-  { src: '/gallery/vette2.jpg', alt: 'Corvette window tinting detail', wide: false },
+  { src: '/gallery/brz4.jpg', alt: 'Subaru BRZ with premium window tint', wide: false },
+  { src: '/gallery/rolla1.jpg', alt: 'Toyota Corolla window tinting detail', wide: false },
   { src: '/gallery/bmw2seiries.jpg', alt: 'BMW 2 Series professional window tinting', wide: false },
-  { src: '/gallery/bmw2seiries2.jpg', alt: 'BMW 2 Series tint installation', wide: false },
   { src: '/gallery/bmwx7_2.jpg', alt: 'BMW X7 luxury tint finish', wide: false },
   { src: '/gallery/bmwx7_3.jpg', alt: 'BMW X7 ceramic tint quality', wide: false },
   { src: '/gallery/bmwx7_4.jpg', alt: 'BMW X7 professional installation', wide: false },
   { src: '/gallery/musk1.jpg', alt: 'Professional window tint installation', wide: false },
   { src: '/gallery/musk2.jpg', alt: 'Tesla window tinting service', wide: false },
   { src: '/gallery/musk3.jpg', alt: 'Luxury vehicle tinting detail', wide: false },
-  { src: '/gallery/amg.jpg', alt: 'Mercedes AMG with premium tint', wide: false },
   { src: '/gallery/rado.jpg', alt: 'Professional auto tinting work', wide: false },
   { src: '/gallery/rado2.jpg', alt: 'Window tint installation showcase', wide: false },
+  { src: '/gallery/rado3.jpg', alt: 'Window tint installation finish', wide: false },
   { src: '/gallery/s4.jpg', alt: 'Audi S4 ceramic tint', wide: false },
+  { src: '/gallery/rolla1.jpg', alt: 'Toyota Corolla tint', wide: false },
+  { src: '/gallery/rolla2.jpg', alt: 'Toyota Corolla tint back view', wide: false },
+  { src: '/gallery/rolla3.jpg', alt: 'Toyota Corolla tint side view', wide: false },
+  { src: '/gallery/merc1.jpg', alt: 'Mercedes side view tint', wide: false },
+  { src: '/gallery/merc2.jpg', alt: 'Mercedes back view tint', wide: false },
+  { src: '/gallery/merc3.jpg', alt: 'Mercedes tint detail', wide: false },
+  { src: '/gallery/merc4.jpg', alt: 'Mercedes front tint', wide: false },
+  { src: '/gallery/300zx1.jpg', alt: 'Nissan 300ZX tint', wide: false },
+  { src: '/gallery/300zx2.jpg', alt: 'Nissan 300ZX tint side', wide: false },
+  { src: '/gallery/5seires1.jpg', alt: 'BMW 5 Series tint', wide: false },
+  { src: '/gallery/5seires2.jpg', alt: 'BMW 5 Series tint detail', wide: false },
+  { src: '/gallery/5seires3.jpg', alt: 'BMW 5 Series tint side', wide: false },
+  { src: '/gallery/brz1.jpg', alt: 'Subaru BRZ tint', wide: false },
+  { src: '/gallery/brz2.jpg', alt: 'Subaru BRZ tint side', wide: false },
+  { src: '/gallery/brz3.jpg', alt: 'Subaru BRZ tint detail', wide: false },
 ]
 
 export default function Gallery() {
@@ -54,19 +70,7 @@ export default function Gallery() {
               muted
               loop
               playsInline
-              poster="/gallery/bmwx7.jpg"
-              aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-45"
-            >
-              <source src="/video/emrldvideo.mp4" type="video/mp4" />
-              <source src="/video/emrldvideo.mov" type="video/quicktime" />
-            </video>
-
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
+              preload="metadata"
               poster="/gallery/bmwx7.jpg"
               className="absolute inset-0 w-full h-full object-cover md:object-contain z-[1]"
             >
@@ -88,17 +92,17 @@ export default function Gallery() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {galleryItems.map((item, i) => (
               <div
-                key={item.src}
-                className={`relative rounded-2xl overflow-hidden group cursor-pointer ${
-                  item.wide ? 'md:col-span-2' : ''
-                }`}
+                key={`${item.src}-${i}`}
+                className="relative rounded-2xl overflow-hidden group cursor-pointer"
               >
-                <div className="relative h-64 md:h-96">
+                <div className="relative aspect-[4/3] w-full">
                   <Image
                     src={item.src}
                     alt={item.alt}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    priority={i < 4}
+                    quality={65}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
                     className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-emerald/20 transition-colors duration-300" />

@@ -2,29 +2,22 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Ambient background layer for side blending */}
-      <video
-        src="/video/typertinting.mov"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="/gallery/bmwx7.jpg"
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-45"
-      />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Skeleton loader underneath the video */}
+      <div className="absolute inset-0 w-full h-full bg-white/5 animate-pulse z-0" />
 
-      {/* Main hero video: preserve original aspect ratio on desktop */}
+      {/* Single video source keeps hero visual while reducing bandwidth and decode cost */}
       <video
-        src="/video/typertinting.mov"
         autoPlay
         muted
         loop
         playsInline
-        poster="/gallery/bmwx7.jpg"
+        preload="metadata"
         className="absolute inset-0 w-full h-full object-cover md:object-contain z-[1]"
-      />
+      >
+        <source src="/video/typertinting.mp4" type="video/mp4" />
+        <source src="/video/typertinting.mov" type="video/quicktime" />
+      </video>
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black z-10" />

@@ -21,21 +21,21 @@ export default function WindowTinting() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <section className="pt-32 pb-20 relative min-h-[400px] flex items-center">
         {/* Background Image */}
         <Image
           src="/gallery/vette1.jpg"
           alt="Corvette with professional window tinting"
           fill
           priority
-          className="object-cover object-[center_30%]"
+          className="object-cover absolute inset-0 z-0 opacity-40 object-[center_30%]"
           quality={90}
         />
         
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black z-[1]" />
         
-        <div className="container-main relative z-20">
+        <div className="container-main relative z-10 w-full">
           <Link href="/" className="text-white/80 text-sm hover:text-white transition-colors mb-4 inline-block">
             ← Back to Home
           </Link>
@@ -49,7 +49,7 @@ export default function WindowTinting() {
       </section>
 
       {/* Features Grid */}
-      <section className="section-padding bg-black-card">
+      <section className="section-padding">
         <div className="container-main">
           <h2 className="heading-md text-center mb-12">
             Why Choose Our <span className="text-emerald">Films</span>
@@ -67,7 +67,7 @@ export default function WindowTinting() {
       </section>
 
       {/* Film Packages */}
-      <section className="section-padding">
+      <section className="section-padding bg-black-card">
         <div className="container-main">
           <h2 className="heading-md text-center mb-12">
             Our <span className="text-emerald">Packages</span>

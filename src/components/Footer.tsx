@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="relative h-14 w-28 sm:h-16 sm:w-32 md:h-[72px] md:w-[136px]">
+              <div className="relative h-20 w-36 sm:h-24 sm:w-44 md:h-[96px] md:w-[180px]">
                 <Image
                   src="/emrldlogomasked.png"
                   alt="Emerald Window Tinting"
@@ -18,7 +18,7 @@ export default function Footer() {
                 />
               </div>
               <span className="font-hatton text-2xl font-bold">
-                Emerald<span className="text-emerald">.</span>
+                Emerald <span className="text-emerald">Window Tinting</span>
               </span>
             </Link>
             <p className="text-muted text-sm leading-relaxed">
@@ -61,7 +61,7 @@ export default function Footer() {
                   ✉️ emeraldwindowtinting@gmail.com
                 </a>
               </li>
-              <li>🕐 Drop-off available, hours quoted with client</li>
+              <li>🕐 Drop-off available by appointment - Typically 9am-6pm</li>
             </ul>
             <div className="flex gap-4 mt-6">
               <a

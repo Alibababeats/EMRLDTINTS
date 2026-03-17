@@ -38,7 +38,7 @@ function AnimatedText({ text, delayOffset, className }: { text: string, delayOff
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
       {/* Skeleton loader underneath the video */}
       <div className="absolute inset-0 w-full h-full bg-white/5 animate-pulse z-0" />
 
@@ -55,23 +55,18 @@ export default function Hero() {
         <source src="/video/typertinting.mov" type="video/quicktime" />
       </video>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black z-10" />
-      <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-black/75 to-transparent z-10 hidden md:block" />
-      <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-black/75 to-transparent z-10 hidden md:block" />
-
       {/* Decorative glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-emerald/10 rounded-full blur-[120px] z-10" />
 
       {/* Content */}
       <div className="container-main relative z-20 text-center pt-20">
-        <h1 className="heading-xl mb-6">
+        <h1 className="heading-xl mb-6" style={{ color: '#FFFFFF' }}>
           <AnimatedText text="Precision Tinting." delayOffset={0.1} />
           <br />
           <AnimatedText className="text-emerald" text="Elevated Style." delayOffset={0.8} />
         </h1>
 
-        <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: '1.4s' }}>
+        <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: '1.4s', color: '#FFFFFF' }}>
           Premium window tinting in Maryland.
         </p>
 
@@ -79,7 +74,7 @@ export default function Hero() {
           <Link href="/contact" className="btn-primary text-lg">
             Get a Free Quote
           </Link>
-          <a href="tel:2407565906" className="btn-glass text-lg">
+          <a href="tel:2407565906" className="btn-glass text-lg" style={{ color: '#FFFFFF' }}>
             Call Now
           </a>
         </div>

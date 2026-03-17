@@ -169,7 +169,7 @@ export default function ContactForm() {
         />
       </div>
 
-      <div className="rounded-lg border border-emerald/30 bg-emerald/10 px-4 py-3 text-sm text-white/80">
+      <div className="rounded-lg border border-emerald/30 bg-emerald/10 px-4 py-3 text-sm text-white">
         A $25 non-refundable deposit is required to book an appointment. Quotes and consultations are always free.
       </div>
 

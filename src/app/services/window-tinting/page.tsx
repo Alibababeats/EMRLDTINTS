@@ -14,7 +14,7 @@ const features = [
   { icon: '👁️', title: 'Crystal Clarity', desc: 'Excellent visibility without compromising style' },
   { icon: '📶', title: 'Signal Friendly', desc: 'No interference with GPS, radio, or cell signals' },
   { icon: '🎨', title: 'Fade Resistant', desc: 'Color stays rich and sleek for years' },
-  { icon: '✨', title: 'Custom Shades', desc: '5% to 50% VLT options available' },
+  { icon: '✨', title: 'Custom Shades', desc: '5% to 70% VLT options available' },
 ]
 
 export default function WindowTinting() {
@@ -36,13 +36,13 @@ export default function WindowTinting() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black z-[1]" />
         
         <div className="container-main relative z-10 w-full">
-          <Link href="/" className="text-white/80 text-sm hover:text-white transition-colors mb-4 inline-block">
+          <Link href="/" className="text-white text-sm hover:text-white transition-colors mb-4 inline-block">
             ← Back to Home
           </Link>
           <h1 className="heading-xl mb-6">
             Window <span className="text-emerald">Tinting</span>
           </h1>
-          <p className="text-white/80 text-xl max-w-2xl">
+          <p className="text-white text-xl max-w-2xl">
             Professional installation of premium ceramic and carbon window films.
           </p>
         </div>
@@ -133,6 +133,52 @@ export default function WindowTinting() {
                 Request a Quote
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Available Shades */}
+      <section className="section-padding">
+        <div className="container-main">
+          <h2 className="heading-md text-center mb-8">
+            Available <span className="text-emerald">Shades</span>
+          </h2>
+          <p className="text-center text-muted mb-12 max-w-2xl mx-auto">
+            From maximum privacy to crystal clear UV protection, we carry a wide variety of VLT (Visible Light Transmission) percentages to match your style.
+          </p>
+          <div 
+            className="rounded-lg p-6 md:p-12 flex flex-nowrap justify-center items-end gap-1 md:gap-3 mb-12 shadow-2xl overflow-x-auto"
+            style={{ backgroundColor: '#FFFFFF' }}
+          >
+            {[
+              { percent: '5%' },
+              { percent: '15%' },
+              { percent: '20%' },
+              { percent: '30%' },
+              { percent: '35%' },
+              { percent: '50%' },
+              { percent: '70%' },
+            ].map((shade) => (
+              <div 
+                key={shade.percent}
+                className="flex flex-col items-center transition-all duration-300 hover:scale-125 cursor-pointer"
+              >
+                <div 
+                  className="w-12 h-24 md:w-14 md:h-28 rounded-sm border border-emerald/40 mb-2 transition-all duration-300 transform -skew-x-12 hover:shadow-lg hover:border-emerald/80"
+                  style={{ 
+                    backgroundColor: '#FFFFFF',
+                    position: 'relative',
+                    overflow: 'hidden'
+                  }}
+                >
+                  <div 
+                    className="absolute inset-0 bg-black" 
+                    style={{ opacity: 1 - (parseInt(shade.percent) / 100) }}
+                  />
+                </div>
+                <h4 className="font-bold text-base md:text-lg text-emerald text-center">{shade.percent}</h4>
+              </div>
+            ))}
           </div>
         </div>
       </section>

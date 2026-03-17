@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -13,6 +13,24 @@
     --white-muted: rgba(255, 255, 255, 0.7);
     --glass-bg: rgba(255, 255, 255, 0.06);
     --glass-border: rgba(255, 255, 255, 0.12);
+    --text-primary: #FFFFFF;
+    --text-secondary: #FFFFFF;
+    --text-muted: #FFFFFF;
+    --bg-primary: #0A0A0A;
+    --bg-secondary: #111111;
+    --border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html.light {
+    --text-primary: #000000;
+    --text-secondary: rgba(0, 0, 0, 0.8);
+    --text-muted: rgba(0, 0, 0, 0.7);
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F3F4F6;
+    --white-muted: rgba(0, 0, 0, 0.7);
+    --glass-bg: rgba(0, 0, 0, 0.04);
+    --glass-border: rgba(0, 0, 0, 0.12);
+    --border-color: rgba(0, 0, 0, 0.15);
   }
 
   html {
@@ -20,7 +38,10 @@
   }
 
   body {
-    @apply bg-black text-white font-body antialiased;
+    @apply font-body antialiased;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
@@ -75,7 +96,63 @@
   }
 
   .text-muted {
-    @apply text-[var(--white-muted)];
+    color: var(--text-muted);
+  }
+
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+
+  /* Override all text colors to use CSS variables */
+  .text-white {
+    color: var(--text-primary) !important;
+  }
+
+  .text-black {
+    color: var(--text-primary) !important;
+  }
+
+  .bg-black {
+    background-color: var(--bg-primary) !important;
+  }
+
+  .bg-white {
+    background-color: var(--bg-primary) !important;
+  }
+
+  .bg-black-card {
+    background-color: var(--bg-secondary) !important;
+  }
+
+  /* Border colors */
+  .border-y {
+    border-color: var(--border-color) !important;
+  }
+
+  .border-t {
+    border-color: var(--border-color) !important;
+  }
+
+  .border-b {
+    border-color: var(--border-color) !important;
+  }
+
+  .border-l {
+    border-color: var(--border-color) !important;
+  }
+
+  .border-r {
+    border-color: var(--border-color) !important;
+  }
+
+  /* Hover states for links */
+  a:hover {
+    color: var(--text-primary);
+  }
+
+  /* Header styling */
+  header {
+    border-color: var(--border-color);
   }
 
   /* Infinite scroll animation */
@@ -116,12 +193,3 @@
     @apply opacity-100 translate-y-0 transition-all duration-700 ease-out;
   }
 }
-
-/* To use licensed Futura: self-host woff2 files and uncomment below */
-/* @font-face {
-  font-family: 'Futura';
-  src: url('/fonts/Futura-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-} */

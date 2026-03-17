@@ -37,13 +37,13 @@ export default function TintRemoval() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black z-[1]" />
         <div className="container-main relative z-10 w-full">
-          <Link href="/" className="text-white/80 text-sm hover:text-white transition-colors mb-4 inline-block">
+          <Link href="/" className="text-white text-sm hover:text-white transition-colors mb-4 inline-block">
             ← Back to Home
           </Link>
           <h1 className="heading-xl mb-6">
             Tint <span className="text-emerald">Removal</span>
           </h1>
-          <p className="text-white/80 text-xl max-w-2xl">
+          <p className="text-white text-xl max-w-2xl">
             Expert removal of old, bubbling, or faded window tint without damage.
           </p>
         </div>

@@ -37,7 +37,7 @@ export default function GalleryPreview() {
   }, [])
 
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-black">
       <div className="container-main">
         <h2 className="heading-lg text-center mb-16">
           Our <span className="text-emerald">Work</span>

@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+﻿import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
@@ -17,6 +17,7 @@ const config: Config = {
           DEFAULT: '#0A0A0A',
           card: '#111111',
         },
+        white: '#FFFFFF',
       },
       fontFamily: {
         hatton: ['var(--font-josefin)', 'Futura', 'Century Gothic', 'Trebuchet MS', 'sans-serif'],
@@ -49,5 +50,4 @@ const config: Config = {
   },
   plugins: [],
 }
-
-export default config
+export default config;

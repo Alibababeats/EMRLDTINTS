@@ -74,7 +74,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         }`}
       >
         <div className="overflow-hidden">
-          <p className="px-6 pb-6 text-white/70 leading-relaxed whitespace-pre-wrap">{answer}</p>
+          <p className="px-6 pb-6 text-white leading-relaxed whitespace-pre-wrap">{answer}</p>
         </div>
       </div>
     </div>

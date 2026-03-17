@@ -79,6 +79,7 @@ export default function About() {
                 alt="Umar - Founder of Emerald Window Tinting"
                 fill
                 className="object-cover"
+                style={{ objectPosition: '30% center' }}
               />
             </div>
           </div>

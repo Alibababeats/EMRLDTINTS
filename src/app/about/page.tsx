@@ -55,12 +55,12 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="heading-md mb-6">
-                DMV's Trusted <span className="text-emerald">Tint Shop</span>
+                DMV's Most Trusted <span className="text-emerald">Tint Shop</span>
               </h2>
               <div className="space-y-4 text-muted">
                 <p>
                   What started as a side hustle, grew into a passionable business for Umar. 
-                  Formaly known as Halal Tints which started in 2023, eventually grew into Emerald Window Tinting 
+                  Formerly known as Halal Tints which started in 2023, eventually grew into Emerald Window Tinting 
                   locally Based in Germantown, MD. We serve clients across the DMV who demand precision 
                   and premium results.
                 </p>

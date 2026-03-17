@@ -59,9 +59,9 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-muted">
                 <p>
-                  What started as a side hustle, grew into a passionable business for Umar. 
+                  What started as a idea, grew into a passionable business for Umar who had something to prove to the world and himself. 
                   Formerly known as Halal Tints which started in 2023, eventually grew into Emerald Window Tinting 
-                  locally Based in Germantown, MD. We serve clients across the DMV who demand precision 
+                  locally Based in Germantown, MD through his home Garage. We serve clients across the&nbsp;DMV who demand precision 
                   and premium results.
                 </p>
                 <p>
@@ -75,10 +75,10 @@ export default function About() {
             </div>
             <div className="relative aspect-square rounded-2xl overflow-hidden">
               <Image
-                src="/emrldlogomasked.png"
-                alt="Emerald Window Tinting"
+                src="/umar.jpg"
+                alt="Umar - Founder of Emerald Window Tinting"
                 fill
-                className="object-contain p-4"
+                className="object-cover"
               />
             </div>
           </div>

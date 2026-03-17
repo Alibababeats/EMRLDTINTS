@@ -76,7 +76,7 @@ export default function TintRemoval() {
           <div className="space-y-6">
             {steps.map((step, i) => (
               <div key={step.num} className="glass-card p-6 flex items-start gap-6">
-                <span className="text-4xl font-hatton font-bold text-emerald/30">{step.num}</span>
+                <span className="text-4xl font-hatton font-bold text-emerald">{step.num}</span>
                 <div>
                   <h3 className="font-semibold text-lg mb-1">{step.title}</h3>
                   <p className="text-muted text-sm">{step.desc}</p>

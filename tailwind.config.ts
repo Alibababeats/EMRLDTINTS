@@ -27,8 +27,9 @@ const config: Config = {
       },
       animation: {
         'scroll-left': 'scroll-left 12s linear infinite',
-        'fade-up': 'fade-up 0.6s ease-out forwards',
+        'fade-up': 'fade-up 0.6s ease-out both',
         'bounce-slow': 'bounce 2s ease-in-out infinite',
+        'pop-in': 'pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both',
       },
       keyframes: {
         'scroll-left': {
@@ -38,6 +39,10 @@ const config: Config = {
         'fade-up': {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'pop-in': {
+          '0%': { opacity: '0', transform: 'scale(0.8) translateY(10px)' },
+          '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
         },
       },
     },

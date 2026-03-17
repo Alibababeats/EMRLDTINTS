@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 
 const trustItems = [
-  { icon: '⭐', text: '5.0 Google Reviews' },
+  { icon: '⭐', text: '200+ 5.0 Google Reviews' },
   { icon: '🏆', text: "DMV's Trusted Tint Shop" },
   { icon: '📅', text: 'Flexible Scheduling' },
 ]

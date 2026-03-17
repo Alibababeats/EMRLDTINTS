@@ -1,5 +1,41 @@
 import Link from 'next/link'
 
+function AnimatedText({ text, delayOffset, className }: { text: string, delayOffset: number, className?: string }) {
+  const words = text.split(' ')
+  let charCount = 0
+
+  return (
+    <span className={className}>
+      {words.map((word, wIndex) => (
+        <span key={wIndex} className="inline-block whitespace-nowrap">
+          {word.split('').map((char, cIndex) => {
+            const delay = delayOffset + charCount * 0.04
+            charCount++
+            return (
+              <span
+                key={cIndex}
+                className="inline-block animate-pop-in"
+                style={{ animationDelay: `${delay}s` }}
+              >
+                {char}
+              </span>
+            )
+          })}
+          {wIndex < words.length - 1 && (
+            <span
+              key={`space-${wIndex}`}
+              className="inline-block animate-pop-in"
+              style={{ animationDelay: `${delayOffset + (charCount++) * 0.04}s`, whiteSpace: 'pre' }}
+            >
+              {' '}
+            </span>
+          )}
+        </span>
+      ))}
+    </span>
+  )
+}
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
@@ -29,17 +65,17 @@ export default function Hero() {
 
       {/* Content */}
       <div className="container-main relative z-20 text-center pt-20">
-        <h1 className="heading-xl mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-          Precision Tinting.
+        <h1 className="heading-xl mb-6">
+          <AnimatedText text="Precision Tinting." delayOffset={0.1} />
           <br />
-          <span className="text-emerald">Elevated Style.</span>
+          <AnimatedText className="text-emerald" text="Elevated Style." delayOffset={0.8} />
         </h1>
 
-        <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: '0.3s' }}>
-          Premium window tinting in the DMV area.
+        <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: '1.4s' }}>
+          Premium window tinting in Maryland.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: '0.5s' }}>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: '1.6s' }}>
           <Link href="/contact" className="btn-primary text-lg">
             Get a Free Quote
           </Link>

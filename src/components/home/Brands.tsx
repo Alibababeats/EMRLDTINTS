@@ -4,8 +4,8 @@ import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 const brands = [
-  { name: 'UVIRON', type: 'Premium Carbon Film', logo: '/brands/uviron-logo.png' },
-  { name: 'Geoshield', type: 'Premium Ceramic Film', logo: '/brands/geoshield-logo.png' },
+  { name: 'UVIRON', type: 'Supreme carbon film', logo: '/brands/uviron-logo.png' },
+  { name: 'Geoshield', type: 'NANO ceramic film', logo: '/brands/geoshield-logo.png' },
 ]
 
 export default function Brands() {

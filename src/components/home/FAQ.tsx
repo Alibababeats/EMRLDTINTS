@@ -6,7 +6,19 @@ const faqs = [
   {
     question: 'What is the legal tint limit in Maryland?',
     answer:
-      'Maryland law requires at least 35% VLT (Visible Light Transmission) on front side windows and the windshield strip. Rear side windows and the rear window have no restriction for non-passenger vehicles. We ensure every installation is fully compliant with state law.',
+      `Darkest legal tint for Cars in Maryland:
+
+Windshield: Non-reflective 35% VLT tint is allowed on the AS-1 line or top 5 inches of the windshield
+Front Side windows: Must allow more than 35% of light in
+Back Side windows: Must allow more than 35% of light in
+Rear window: Must allow more than 35% of light in
+
+Darkest legal tint for SUV and Vans in Maryland:
+
+Windshield: Non-reflective 35% VLT tint is allowed on the AS-1 line or top 5 inches of the windshield
+Front Side windows: Must allow more than 35% of light in
+Back Side windows: Any darkness window tint can be used
+Rear window: Any darkness window tint can be used`,
   },
   {
     question: 'How long does the film take to cure?',
@@ -16,7 +28,7 @@ const faqs = [
   {
     question: 'Can I use my defrosters after tinting?',
     answer:
-      'Yes, but wait at least 3–5 days after installation before using your rear defroster. This allows the adhesive to fully bond to the glass and prevents any lifting or damage to the film.',
+      'Yes, but wait at least 3–5 days after installation before using your rear defroster. This allows the adhesive to fully bond to the glass and prevent any lifting or damage to the film.',
   },
   {
     question: 'How should I clean my tinted windows?',
@@ -29,14 +41,9 @@ const faqs = [
       'We stand behind every installation. Our films come backed by the manufacturer\'s warranty covering defects such as bubbling, peeling, and discoloration. Reach out to us directly and we\'ll make it right.',
   },
   {
-    question: 'How long does a typical installation take?',
-    answer:
-      'Most full-vehicle installs take between 2–4 hours depending on the vehicle size and number of windows. We work efficiently without cutting corners to ensure a clean, long-lasting result.',
-  },
-  {
     question: 'What is the difference between carbon and ceramic tint?',
     answer:
-      'Carbon tint (UVIRON) offers excellent heat rejection and a matte, premium look without interfering with signals. Ceramic tint (Geoshield) provides the highest heat rejection, superior UV protection, and maximum clarity — ideal for those who want the best performance available.',
+      'Carbon is the affordable option for privacy. Ceramic tint provides the highest heat rejection, superior UV protection, and maximum clarity — ideal for those who want the best performance available.',
   },
 ]
 
@@ -62,11 +69,13 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         </span>
       </button>
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? 'max-h-60' : 'max-h-0'
+        className={`grid transition-all duration-300 ease-in-out ${
+          open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
         }`}
       >
-        <p className="px-6 pb-6 text-white/70 leading-relaxed">{answer}</p>
+        <div className="overflow-hidden">
+          <p className="px-6 pb-6 text-white/70 leading-relaxed whitespace-pre-wrap">{answer}</p>
+        </div>
       </div>
     </div>
   )

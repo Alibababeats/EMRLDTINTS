@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import GalleryGrid from './GalleryGrid'
 
 export const metadata: Metadata = {
   title: 'Gallery | Emerald Window Tinting Rockville MD',
@@ -86,29 +87,9 @@ export default function Gallery() {
       </section>
 
       {/* Gallery Grid */}
-      <section className="section-padding">
+      <section className="section-padding overflow-hidden">
         <div className="container-main">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {galleryItems.map((item, i) => (
-              <div
-                key={`${item.src}-${i}`}
-                className="relative rounded-2xl overflow-hidden group cursor-pointer"
-              >
-                <div className="relative aspect-[4/3] w-full">
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    priority={i < 4}
-                    quality={65}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-emerald/20 transition-colors duration-300" />
-                </div>
-              </div>
-            ))}
-          </div>
+          <GalleryGrid items={galleryItems} />
 
           {/* More coming soon notice */}
           <div className="glass-card p-8 text-center mt-12">

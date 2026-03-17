@@ -59,15 +59,16 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-muted">
                 <p>
-                  Emerald Window Tinting is built on one principle: do exceptional work, every time. 
-                  Based in Germantown, MD, we serve clients across the DMV who demand precision 
+                  What started as a side hustle, grew into a passionable business for Umar. 
+                  Formaly known as Halal Tints which started in 2023, eventually grew into Emerald Window Tinting 
+                  locally Based in Germantown, MD. We serve clients across the DMV who demand precision 
                   and premium results.
                 </p>
                 <p>
                   We use only the best ceramic and carbon films because your vehicle deserves nothing less.
                 </p>
                 <p>
-                  No shortcuts. No compromises. Just clean, professional tinting that transforms 
+                  No shortcuts. No compromises. Just clean cuts, and professional tinting that transforms 
                   your ride.
                 </p>
               </div>

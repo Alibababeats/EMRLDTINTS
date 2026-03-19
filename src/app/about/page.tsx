@@ -4,8 +4,8 @@ import Link from 'next/link'
 import CTASection from '@/components/home/CTASection'
 
 export const metadata: Metadata = {
-  title: 'About Us | Emerald Window Tinting Rockville MD',
-  description: 'Learn about Emerald Window Tinting, the DMV\'s trusted window tinting specialists. Quality films, precision installation, customer-first service in Rockville, MD.',
+  title: 'About Us | Emerald Window Tinting Germantown MD',
+  description: 'Learn about Emerald Window Tinting, the DMV\'s trusted window tinting specialists. Quality films, precision installation, customer-first service in Germantown, MD.',
 }
 
 const values = [

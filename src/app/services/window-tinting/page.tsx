@@ -4,8 +4,8 @@ import Image from 'next/image'
 import CTASection from '@/components/home/CTASection'
 
 export const metadata: Metadata = {
-  title: 'Window Tinting Services | Emerald Window Tinting Rockville MD',
-  description: 'Premium ceramic and carbon window tinting in Rockville, MD. PureMax Supreme Carbon & KOOLMAX Supreme Ceramic films. 99% UV protection, heat rejection, crystal clarity.',
+  title: 'Window Tinting Services | Emerald Window Tinting Germantown MD',
+  description: 'Premium ceramic and carbon window tinting in Germantown, MD. PureMax Supreme Carbon & KOOLMAX Supreme Ceramic films. 99% UV protection, heat rejection, crystal clarity.',
 }
 
 const features = [

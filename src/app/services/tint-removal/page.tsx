@@ -4,8 +4,8 @@ import Image from 'next/image'
 import CTASection from '@/components/home/CTASection'
 
 export const metadata: Metadata = {
-  title: 'Tint Removal Services | Emerald Window Tinting Rockville MD',
-  description: 'Professional window tint removal in Rockville, MD. Safe, residue-free removal of old, bubbling, or faded tint. Protect your windows with our expert service.',
+  title: 'Tint Removal Services | Emerald Window Tinting Germantown MD',
+  description: 'Professional window tint removal in Germantown, MD. Safe, residue-free removal of old, bubbling, or faded tint. Protect your windows with our expert service.',
 }
 
 const benefits = [

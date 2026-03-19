@@ -4,7 +4,7 @@ import Link from 'next/link'
 import GalleryGrid from './GalleryGrid'
 
 export const metadata: Metadata = {
-  title: 'Gallery | Emerald Window Tinting Rockville MD',
+  title: 'Gallery | Emerald Window Tinting Germantown MD',
   description: 'View our portfolio of professional window tinting work in the DMV area. Ceramic and carbon tint on luxury vehicles, SUVs, trucks, and more.',
 }
 

@@ -8,12 +8,12 @@ import SmoothScroll from '@/components/SmoothScroll'
 const josefin = Josefin_Sans({ subsets: ['latin'], variable: '--font-josefin', weight: ['300', '400', '600', '700'] })
 
 export const metadata: Metadata = {
-  title: 'Emerald Window Tinting | Premium Auto Tint in Rockville, MD',
-  description: 'Professional ceramic and carbon window tinting in the DMV area. Precision installation, premium films, exceptional results. Get your free quote today.',
-  keywords: 'window tinting rockville md, ceramic window tint maryland, car window tinting dmv, auto tint germantown md',
+  title: 'Premium Auto Window Tinting in the DMV | Located in Germantown, MD',
+  description: 'Professional ceramic and carbon window tinting in Germantown, Maryland and the DMV area. Precision installation, premium films, exceptional results. Get your free quote today.',
+  keywords: 'window tinting germantown md, window tinting dmv, ceramic window tint maryland, car window tinting near me',
   openGraph: {
-    title: 'Emerald Window Tinting | Premium Auto Tint in Rockville, MD',
-    description: 'Professional ceramic and carbon window tinting in the DMV area. Precision installation, premium films, exceptional results.',
+    title: 'Premium Auto Window Tinting in the DMV | Located in Germantown, MD',
+    description: 'Professional ceramic and carbon window tinting in Germantown, Maryland and the DMV area. Precision installation, premium films, exceptional results.',
     type: 'website',
     locale: 'en_US',
   },

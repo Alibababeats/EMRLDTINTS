@@ -3,8 +3,8 @@ import Link from 'next/link'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Emerald Window Tinting Rockville MD',
-  description: 'Get a free quote for professional window tinting in Rockville, MD. Call, text, or email us. Serving the entire DMV area.',
+  title: 'Contact Us | Emerald Window Tinting Germantown MD',
+  description: 'Get a free quote for professional window tinting in Germantown, MD. Call, text, or email us. Serving the entire DMV area.',
 }
 
 export default function Contact() {

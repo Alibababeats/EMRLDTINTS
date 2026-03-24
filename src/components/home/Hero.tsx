@@ -40,7 +40,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
       {/* Skeleton loader underneath the video */}
-      <div className="absolute inset-0 w-full h-full bg-white/5 animate-pulse z-0" />
+      <div className="absolute inset-0 w-full h-full bg-white/5 animate-pulse md:animate-none z-0" />
 
       {/* Single video source keeps hero visual while reducing bandwidth and decode cost */}
       <video

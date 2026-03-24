@@ -70,7 +70,7 @@ export default function Contact() {
                     <span className="text-2xl">🕐</span>
                     <div>
                       <p className="font-medium text-white">Hours</p>
-                      <p>Drop-off available by appointment - Typically 9am-6pm</p>
+                      <p>Drop Offs by Appointments ONLY, From 9am-6pm</p>
                     </div>
                   </li>
                 </ul>

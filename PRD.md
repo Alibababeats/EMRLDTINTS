@@ -12,7 +12,7 @@
 **Phone:** (240) 756-5906
 **Email:** emeraldwindowtinting@gmail.com *(update to Emerald-branded email when available)*
 **Instagram:** [@emeraldwindowtinting](https://www.instagram.com/emeraldwindowtinting/)
-**Hours:** Drop off only - hours quoted with client, typically 6pm-9pm
+**Hours:** Drop Offs by Appointments ONLY, From 9am-6pm
 **Current Site:** [halaltints.com](https://www.halaltints.com/)
 
 **Mission:** Build a premium, mobile-first marketing site that positions Emerald Window Tinting as the go-to high-end window tinting provider in the DMV area. The site should convert visitors into leads — not display pricing.

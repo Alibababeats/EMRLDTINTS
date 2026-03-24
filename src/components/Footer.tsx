@@ -61,7 +61,7 @@ export default function Footer() {
                   ✉️ emeraldwindowtinting@gmail.com
                 </a>
               </li>
-              <li>🕐 Drop-off available by appointment - Typically 9am-6pm</li>
+              <li>🕐 Drop Offs by Appointments ONLY, From 9am-6pm</li>
             </ul>
             <div className="flex gap-4 mt-6">
               <a

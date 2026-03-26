@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 function AnimatedText({ text, delayOffset, className }: { text: string, delayOffset: number, className?: string }) {
@@ -37,6 +40,37 @@ function AnimatedText({ text, delayOffset, className }: { text: string, delayOff
 }
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    let handleInteraction: (() => void) | null = null
+
+    if (video) {
+      // Ensure video plays on mount
+      const playPromise = video.play()
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.log('Autoplay prevented, will retry:', error)
+          // Retry play on user interaction
+          handleInteraction = () => {
+            video.play().catch((e) => console.log('Play failed:', e))
+            document.removeEventListener('click', handleInteraction)
+            document.removeEventListener('touchstart', handleInteraction)
+          }
+          document.addEventListener('click', handleInteraction)
+          document.addEventListener('touchstart', handleInteraction)
+        })
+      }
+    }
+
+    return () => {
+      if (handleInteraction) {
+        document.removeEventListener('click', handleInteraction)
+        document.removeEventListener('touchstart', handleInteraction)
+      }
+    }
+  }, [])
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
       {/* Skeleton loader underneath the video */}
@@ -44,6 +78,7 @@ export default function Hero() {
 
       {/* Single video source keeps hero visual while reducing bandwidth and decode cost */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop

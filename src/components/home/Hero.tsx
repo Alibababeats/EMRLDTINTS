@@ -2,49 +2,88 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-
-function AnimatedText({ text, delayOffset, className }: { text: string, delayOffset: number, className?: string }) {
-  const words = text.split(' ')
-  let charCount = 0
-
-  return (
-    <span className={className}>
-      {words.map((word, wIndex) => (
-        <span key={wIndex} className="inline-block whitespace-nowrap">
-          {word.split('').map((char, cIndex) => {
-            const delay = delayOffset + charCount * 0.04
-            charCount++
-            return (
-              <span
-                key={cIndex}
-                className="inline-block animate-pop-in"
-                style={{ animationDelay: `${delay}s` }}
-              >
-                {char}
-              </span>
-            )
-          })}
-          {wIndex < words.length - 1 && (
-            <span
-              key={`space-${wIndex}`}
-              className="inline-block animate-pop-in"
-              style={{ animationDelay: `${delayOffset + (charCount++) * 0.04}s`, whiteSpace: 'pre' }}
-            >
-              {' '}
-            </span>
-          )}
-        </span>
-      ))}
-    </span>
-  )
-}
+import gsap from 'gsap'
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const loaderRef = useRef<HTMLDivElement>(null)
+  const headingRef = useRef<HTMLHeadingElement>(null)
+  const paragraphRef = useRef<HTMLParagraphElement>(null)
+  const ctaRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const video = videoRef.current
+    const loader = loaderRef.current
     let handleInteraction: (() => void) | null = null
+
+    // Create GSAP timeline for text animations
+    const tl = gsap.timeline()
+
+    // Animate heading characters one by one
+    if (headingRef.current) {
+      const lines = headingRef.current.querySelectorAll('.heading-line')
+      lines.forEach((line, lineIndex) => {
+        // Split text into characters and wrap each in a span
+        const text = line.textContent || ''
+        const chars = text.split('').map((char) => {
+          const span = document.createElement('span')
+          span.textContent = char
+          span.style.display = 'inline-block'
+          span.style.opacity = '0'
+          return span
+        })
+        
+        // Clear the line and append character spans
+        line.textContent = ''
+        chars.forEach((char) => line.appendChild(char))
+        
+        // Stagger animation for each character
+        const startTime = lineIndex === 0 ? 0.05 : `>+0.05`
+        tl.fromTo(
+          chars,
+          { opacity: 0, y: 10 },
+          { 
+            opacity: 1, 
+            y: 0, 
+            duration: 0.2, 
+            ease: 'power2.out',
+            stagger: 0.03
+          },
+          startTime
+        )
+      })
+    }
+
+    // Animate paragraph
+    if (paragraphRef.current) {
+      tl.fromTo(
+        paragraphRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.25, ease: 'power2.out' },
+        `>+0.05`
+      )
+    }
+
+    // Animate CTA buttons
+    if (ctaRef.current) {
+      tl.fromTo(
+        ctaRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.25, ease: 'power2.out' },
+        `>+0.05`
+      )
+    }
+
+    // Handler for video canplay event
+    const onCanPlay = () => {
+      if (loader) {
+        gsap.to(loader, {
+          opacity: 0,
+          duration: 0.5,
+          pointerEvents: 'none',
+        })
+      }
+    }
 
     if (video) {
       // Ensure video plays on mount
@@ -62,19 +101,39 @@ export default function Hero() {
           document.addEventListener('touchstart', handleInteraction)
         })
       }
+
+      // Fade out loader when video loads
+      video.addEventListener('canplay', onCanPlay)
     }
 
     return () => {
+      // Kill GSAP timeline to prevent memory leaks
+      if (tl) {
+        tl.kill()
+      }
+      
+      // Remove event listeners
       if (handleInteraction) {
         document.removeEventListener('click', handleInteraction)
         document.removeEventListener('touchstart', handleInteraction)
+      }
+      
+      // Remove video canplay listener
+      if (video) {
+        video.removeEventListener('canplay', onCanPlay)
       }
     }
   }, [])
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
-      {/* Skeleton loader underneath the video */}
-      <div className="absolute inset-0 w-full h-full bg-white/5 animate-pulse md:animate-none z-0" />
+      {/* Static background overlay */}
+      <div
+        ref={loaderRef}
+        className="absolute inset-0 w-full h-full z-0"
+        style={{
+          backgroundColor: '#0A0A0A',
+        }}
+      />
 
       {/* Single video source keeps hero visual while reducing bandwidth and decode cost */}
       <video
@@ -95,17 +154,16 @@ export default function Hero() {
 
       {/* Content */}
       <div className="container-main relative z-20 text-center pt-20">
-        <h1 className="heading-xl mb-6" style={{ color: '#FFFFFF' }}>
-          <AnimatedText text="Precision Tinting." delayOffset={0.1} />
-          <br />
-          <AnimatedText className="text-emerald" text="Elevated Style." delayOffset={0.8} />
+        <h1 className="heading-xl mb-6" ref={headingRef} style={{ color: '#FFFFFF' }}>
+          <div className="heading-line">Precision Tinting.</div>
+          <div className="heading-line text-emerald">Elevated Style.</div>
         </h1>
 
-        <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: '1.4s', color: '#FFFFFF' }}>
+        <p ref={paragraphRef} className="text-lg md:text-xl max-w-2xl mx-auto mb-10" style={{ color: '#FFFFFF' }}>
           Premium window tinting in Maryland.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: '1.6s' }}>
+        <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/contact" className="btn-primary text-lg">
             Get a Free Quote
           </Link>

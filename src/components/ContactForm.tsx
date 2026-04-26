@@ -1,19 +1,85 @@
 'use client'
 
 import { useState } from 'react'
+import { isValidPhoneNumber } from 'libphonenumber-js'
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [phone, setPhone] = useState('')
+  const [phoneError, setPhoneError] = useState('')
+
+  const formatPhoneNumber = (inputValue: string): string => {
+    // Extract only digits from input
+    const digitsOnly = inputValue.replace(/\D/g, '')
+    
+    // Don't allow more than 10 digits
+    if (digitsOnly.length > 10) {
+      return formatPhoneNumber(digitsOnly.slice(0, 10))
+    }
+
+    // Build formatted string as we go
+    if (digitsOnly.length === 0) return ''
+    if (digitsOnly.length <= 3) return `(${digitsOnly}`
+    if (digitsOnly.length <= 6) return `(${digitsOnly.slice(0, 3)}) ${digitsOnly.slice(3)}`
+    return `(${digitsOnly.slice(0, 3)}) ${digitsOnly.slice(3, 6)}-${digitsOnly.slice(6, 10)}`
+  }
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value
+    
+    // Extract only digits to count them
+    const digitsOnly = inputValue.replace(/\D/g, '')
+    
+    // Don't allow more than 10 digits
+    if (digitsOnly.length > 10) {
+      return
+    }
+    
+    const formatted = formatPhoneNumber(inputValue)
+    setPhone(formatted)
+
+    // Validate the phone number
+    const digitsCount = formatted.replace(/\D/g, '').length
+    if (digitsCount > 0) {
+      try {
+        // Only validate if we have a complete 10-digit number
+        if (digitsCount === 10) {
+          const isValid = isValidPhoneNumber(formatted, 'US')
+          if (isValid) {
+            setPhoneError('')
+          } else {
+            setPhoneError('Please enter a valid phone number')
+          }
+        } else if (digitsCount < 10) {
+          setPhoneError('Phone number is incomplete')
+        }
+      } catch {
+        setPhoneError('Please enter a valid phone number')
+      }
+    } else {
+      setPhoneError('')
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    
+    // Validate phone before submitting
+    if (phoneError || !phone) {
+      setPhoneError(phone ? phoneError : 'Phone number is required')
+      return
+    }
+
     setStatus('loading')
 
     const form = e.currentTarget
     const formData = new FormData(form)
+    const payload = Object.fromEntries(formData.entries())
+    
+    // Use the formatted phone number from state
+    payload.phone = phone
 
     try {
-      const payload = Object.fromEntries(formData.entries())
 
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -26,6 +92,8 @@ export default function ContactForm() {
       }
 
       setStatus('success')
+      setPhone('')
+      setPhoneError('')
       form.reset()
     } catch {
       setStatus('error')
@@ -39,7 +107,11 @@ export default function ContactForm() {
         <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
         <p className="text-muted">We'll get back to you within 24 hours.</p>
         <button
-          onClick={() => setStatus('idle')}
+          onClick={() => {
+            setStatus('idle')
+            setPhone('')
+            setPhoneError('')
+          }}
           className="btn-glass mt-6"
         >
           Send Another
@@ -85,27 +157,18 @@ export default function ContactForm() {
           type="tel"
           id="phone"
           name="phone"
+          inputMode="tel"
+          value={phone}
+          onChange={handlePhoneChange}
+          autoComplete="tel"
           required
-          className="w-full px-4 py-3 bg-emerald/10 border border-emerald/30 text-white placeholder-white/40 rounded-lg focus:border-emerald focus:outline-none transition-colors"
-          placeholder="(240) 555-0000"
+          className={`w-full px-4 py-3 bg-emerald/10 border ${phoneError ? 'border-red-500' : 'border-emerald/30'} text-white placeholder-white/40 rounded-lg focus:border-emerald focus:outline-none transition-colors`}
+          placeholder="(301) 300-2559"
         />
+        {phoneError && <p className="text-red-400 text-sm mt-1">{phoneError}</p>}
       </div>
 
-      <div>
-        <label htmlFor="service" className="block text-sm font-medium mb-2">
-          Service *
-        </label>
-        <select
-          id="service"
-          name="service"
-          required
-          className="w-full px-4 py-3 bg-emerald/10 border border-emerald/30 text-white rounded-lg focus:border-emerald focus:outline-none transition-colors appearance-none cursor-pointer"
-        >
-          <option value="" className="bg-black-card text-white">Select a service</option>
-          <option value="window-tinting" className="bg-black-card text-white">Window Tinting</option>
-          <option value="tint-removal" className="bg-black-card text-white">Tint Removal</option>
-        </select>
-      </div>
+
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div>

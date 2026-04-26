@@ -42,7 +42,6 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-emerald">Services</h4>
             <ul className="space-y-3 text-sm text-muted">
               <li><Link href="/services/window-tinting" className="hover:text-white transition-colors">Window Tinting</Link></li>
-              <li><Link href="/services/tint-removal" className="hover:text-white transition-colors">Tint Removal</Link></li>
             </ul>
           </div>
 

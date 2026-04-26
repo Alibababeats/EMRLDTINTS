@@ -23,11 +23,6 @@ function sanitizeHeaderValue(value: string): string {
     .trim()
 }
 
-const SERVICE_LABELS: Record<string, string> = {
-  'window-tinting': 'Window Tinting',
-  'tint-removal': 'Tint Removal',
-}
-
 export async function POST(request: Request) {
   try {
     if (!process.env.RESEND_API_KEY) {
@@ -39,13 +34,12 @@ export async function POST(request: Request) {
     const name = asString(body.name)
     const email = asString(body.email)
     const phone = asString(body.phone)
-    const service = asString(body.service)
     const year = asString(body.year)
     const make = asString(body.make)
     const model = asString(body.model)
     const message = asString(body.message)
 
-    if (!name || !email || !phone || !service || !year || !make || !model || !message) {
+    if (!name || !email || !phone || !year || !make || !model || !message) {
       return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
     }
 
@@ -57,9 +51,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Please enter a valid email address.' }, { status: 400 })
     }
 
-    const mappedServiceLabel = SERVICE_LABELS[service]
-    const sanitizedServiceInput = sanitizeHeaderValue(service)
-    const serviceLabel = mappedServiceLabel || sanitizedServiceInput || 'General Inquiry'
+    const serviceLabel = 'Window Tinting'
     const subjectServiceLabel = serviceLabel.slice(0, 80)
 
     const toEmail = process.env.OWNER_EMAIL || 'emeraldwindowtinting@gmail.com'
@@ -68,7 +60,6 @@ export async function POST(request: Request) {
     const safeName = escapeHtml(name)
     const safeEmail = escapeHtml(email)
     const safePhone = escapeHtml(phone)
-    const safeService = escapeHtml(serviceLabel)
     const safeYear = escapeHtml(year)
     const safeMake = escapeHtml(make)
     const safeModel = escapeHtml(model)
@@ -84,7 +75,6 @@ export async function POST(request: Request) {
         <p><strong>Name:</strong> ${safeName}</p>
         <p><strong>Email:</strong> ${safeEmail}</p>
         <p><strong>Phone:</strong> ${safePhone}</p>
-        <p><strong>Service:</strong> ${safeService}</p>
         <p><strong>Year:</strong> ${safeYear}</p>
         <p><strong>Make:</strong> ${safeMake}</p>
         <p><strong>Model:</strong> ${safeModel}</p>

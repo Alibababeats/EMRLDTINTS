@@ -42,9 +42,6 @@ export default function Header() {
             <Link href="/services/window-tinting" className={`transition-colors text-sm ${isActive('/services/window-tinting') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
               Window Tinting
             </Link>
-            <Link href="/services/tint-removal" className={`transition-colors text-sm ${isActive('/services/tint-removal') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
-              Removal
-            </Link>
             <Link href="/gallery" className={`transition-colors text-sm ${isActive('/gallery') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
               Gallery
             </Link>
@@ -55,8 +52,8 @@ export default function Header() {
 
           {/* Right Section */}
           <div className="hidden md:flex items-center gap-3">
-            <Link href="/contact" className="btn-primary text-xs px-4 py-2">
-              Quote
+            <Link href="/contact" className="btn-primary px-6 py-3 text-base">
+              Get Quote
             </Link>
           </div>
 
@@ -82,9 +79,6 @@ export default function Header() {
             </Link>            <Link href="/services/window-tinting" onClick={() => setIsOpen(false)} className={`transition-colors py-2 ${isActive('/services/window-tinting') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
               Window Tinting
             </Link>
-            <Link href="/services/tint-removal" onClick={() => setIsOpen(false)} className={`transition-colors py-2 ${isActive('/services/tint-removal') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
-              Tint Removal
-            </Link>
             <Link href="/gallery" onClick={() => setIsOpen(false)} className={`transition-colors py-2 ${isActive('/gallery') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
               Gallery
             </Link>
@@ -92,7 +86,7 @@ export default function Header() {
               About
             </Link>
             <Link href="/contact" onClick={() => setIsOpen(false)} className="btn-primary text-center mt-2">
-              Free Quote
+              Get Quote
             </Link>
             <a href="tel:2407565906" onClick={() => setIsOpen(false)} className="btn-glass text-center">
               📞 (240) 756-5906

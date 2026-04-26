@@ -14,7 +14,6 @@ export default function Hero() {
   useEffect(() => {
     const video = videoRef.current
     const loader = loaderRef.current
-    let handleInteraction: (() => void) | null = null
 
     // Create GSAP timeline for text animations
     const tl = gsap.timeline()
@@ -85,6 +84,15 @@ export default function Hero() {
       }
     }
 
+    // Handler for user interaction to play video
+    const onUserInteraction = () => {
+      if (video) {
+        video.play().catch((e) => console.log('Play failed:', e))
+        document.removeEventListener('click', onUserInteraction)
+        document.removeEventListener('touchstart', onUserInteraction)
+      }
+    }
+
     if (video) {
       // Ensure video plays on mount
       const playPromise = video.play()
@@ -92,13 +100,8 @@ export default function Hero() {
         playPromise.catch((error) => {
           console.log('Autoplay prevented, will retry:', error)
           // Retry play on user interaction
-          handleInteraction = () => {
-            video.play().catch((e) => console.log('Play failed:', e))
-            document.removeEventListener('click', handleInteraction)
-            document.removeEventListener('touchstart', handleInteraction)
-          }
-          document.addEventListener('click', handleInteraction)
-          document.addEventListener('touchstart', handleInteraction)
+          document.addEventListener('click', onUserInteraction)
+          document.addEventListener('touchstart', onUserInteraction)
         })
       }
 
@@ -113,10 +116,8 @@ export default function Hero() {
       }
       
       // Remove event listeners
-      if (handleInteraction) {
-        document.removeEventListener('click', handleInteraction)
-        document.removeEventListener('touchstart', handleInteraction)
-      }
+      document.removeEventListener('click', onUserInteraction)
+      document.removeEventListener('touchstart', onUserInteraction)
       
       // Remove video canplay listener
       if (video) {

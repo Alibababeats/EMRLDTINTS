@@ -168,7 +168,21 @@ export default function ContactForm() {
         {phoneError && <p className="text-red-400 text-sm mt-1">{phoneError}</p>}
       </div>
 
-
+      <div>
+        <label htmlFor="service" className="block text-sm font-medium mb-2">
+          Service *
+        </label>
+        <select
+          id="service"
+          name="service"
+          required
+          className="w-full px-4 py-3 bg-emerald/10 border border-emerald/30 text-white rounded-lg focus:border-emerald focus:outline-none transition-colors"
+        >
+          <option value="">Select a service</option>
+          <option value="Window Tinting">Window Tinting</option>
+          <option value="Tint Removal">Tint Removal</option>
+        </select>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div>

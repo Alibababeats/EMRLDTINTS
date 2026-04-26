@@ -5,6 +5,7 @@ import Brands from '@/components/home/Brands'
 import GalleryPreview from '@/components/home/GalleryPreview'
 import FAQ from '@/components/home/FAQ'
 import CTASection from '@/components/home/CTASection'
+import Services from '@/components/home/Services'
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <TrustBar />
       <Testimonials />
       <Brands />
+      <Services />
       <GalleryPreview />
       <FAQ />
       <CTASection />

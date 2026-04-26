@@ -42,6 +42,9 @@ export default function Header() {
             <Link href="/services/window-tinting" className={`transition-colors text-sm ${isActive('/services/window-tinting') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
               Window Tinting
             </Link>
+            <Link href="/services/tint-removal" className={`transition-colors text-sm ${isActive('/services/tint-removal') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
+              Tint Removal
+            </Link>
             <Link href="/gallery" className={`transition-colors text-sm ${isActive('/gallery') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
               Gallery
             </Link>
@@ -76,8 +79,12 @@ export default function Header() {
             <div className="flex flex-col gap-4 pt-4" style={{ borderTopColor: 'var(--border-color)', borderTopWidth: '1px' }}>
             <Link href="/" onClick={() => setIsOpen(false)} className={`transition-colors py-2 ${isActive('/') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
               Home
-            </Link>            <Link href="/services/window-tinting" onClick={() => setIsOpen(false)} className={`transition-colors py-2 ${isActive('/services/window-tinting') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
+            </Link>
+            <Link href="/services/window-tinting" onClick={() => setIsOpen(false)} className={`transition-colors py-2 ${isActive('/services/window-tinting') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
               Window Tinting
+            </Link>
+            <Link href="/services/tint-removal" onClick={() => setIsOpen(false)} className={`transition-colors py-2 ${isActive('/services/tint-removal') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
+              Tint Removal
             </Link>
             <Link href="/gallery" onClick={() => setIsOpen(false)} className={`transition-colors py-2 ${isActive('/gallery') ? 'text-emerald font-semibold' : 'text-secondary hover:text-emerald'}`}>
               Gallery

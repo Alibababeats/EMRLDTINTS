@@ -22,19 +22,37 @@ export default function Hero() {
     if (headingRef.current) {
       const lines = headingRef.current.querySelectorAll('.heading-line')
       lines.forEach((line, lineIndex) => {
-        // Split text into characters and wrap each in a span
         const text = line.textContent || ''
-        const chars = text.split('').map((char) => {
-          const span = document.createElement('span')
-          span.textContent = char
-          span.style.display = 'inline-block'
-          span.style.opacity = '0'
-          return span
-        })
-        
-        // Clear the line and append character spans
+        const words = text.split(' ')
         line.textContent = ''
-        chars.forEach((char) => line.appendChild(char))
+        
+        const chars: HTMLSpanElement[] = []
+        
+        words.forEach((word, wordIndex) => {
+          // Wrap each word in a span with whitespace-nowrap to prevent mid-word breaking
+          const wordSpan = document.createElement('span')
+          wordSpan.style.display = 'inline-block'
+          wordSpan.style.whiteSpace = 'nowrap'
+          
+          word.split('').forEach((char) => {
+            const span = document.createElement('span')
+            span.textContent = char
+            span.style.display = 'inline-block'
+            span.style.opacity = '0'
+            wordSpan.appendChild(span)
+            chars.push(span)
+          })
+          
+          line.appendChild(wordSpan)
+          
+          // Add space after word if it's not the last word
+          if (wordIndex < words.length - 1) {
+            const spaceSpan = document.createElement('span')
+            spaceSpan.textContent = '\u00A0'
+            spaceSpan.style.display = 'inline-block'
+            line.appendChild(spaceSpan)
+          }
+        })
         
         // Stagger animation for each character
         const startTime = lineIndex === 0 ? 0.05 : `>+0.05`

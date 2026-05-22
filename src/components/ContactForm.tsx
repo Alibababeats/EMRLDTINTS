@@ -184,6 +184,23 @@ export default function ContactForm() {
         </select>
       </div>
 
+      <div>
+        <label htmlFor="contactPreference" className="block text-sm font-medium mb-2">
+          Contact Preference *
+        </label>
+        <select
+          id="contactPreference"
+          name="contactPreference"
+          required
+          className="w-full px-4 py-3 bg-emerald/10 border border-emerald/30 text-white rounded-lg focus:border-emerald focus:outline-none transition-colors"
+        >
+          <option value="">Select a preference</option>
+          <option value="Text">Text</option>
+          <option value="Call">Call</option>
+          <option value="Email">Email</option>
+        </select>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div>
           <label htmlFor="year" className="block text-sm font-medium mb-2">

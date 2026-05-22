@@ -178,9 +178,9 @@ export default function ContactForm() {
           required
           className="w-full px-4 py-3 bg-emerald/10 border border-emerald/30 text-white rounded-lg focus:border-emerald focus:outline-none transition-colors"
         >
-          <option value="">Select a service</option>
-          <option value="Window Tinting">Window Tinting</option>
-          <option value="Tint Removal">Tint Removal</option>
+          <option value="" className="bg-black text-white">Select a service</option>
+          <option value="Window Tinting" className="bg-black text-white">Window Tinting</option>
+          <option value="Tint Removal" className="bg-black text-white">Tint Removal</option>
         </select>
       </div>
 
@@ -194,10 +194,10 @@ export default function ContactForm() {
           required
           className="w-full px-4 py-3 bg-emerald/10 border border-emerald/30 text-white rounded-lg focus:border-emerald focus:outline-none transition-colors"
         >
-          <option value="">Select a preference</option>
-          <option value="Text">Text</option>
-          <option value="Call">Call</option>
-          <option value="Email">Email</option>
+          <option value="" className="bg-black text-white">Select a preference</option>
+          <option value="Text" className="bg-black text-white">Text</option>
+          <option value="Call" className="bg-black text-white">Call</option>
+          <option value="Email" className="bg-black text-white">Email</option>
         </select>
       </div>
 

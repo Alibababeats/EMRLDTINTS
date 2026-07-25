@@ -17,6 +17,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
   },
+  alternates: {
+    canonical: 'https://emeraldwindowtinting.com',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
@@ -26,7 +33,47 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={josefin.variable}>
-      <head />
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: 'Emerald Window Tinting',
+              description: 'Professional automotive window tinting serving Potomac, Gaithersburg, Rockville, and Frederick, MD. Premium ceramic and carbon films with expert installation.',
+              url: 'https://emeraldwindowtinting.com',
+              telephone: '+1-240-756-5906',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Germantown',
+                addressRegion: 'MD',
+                addressCountry: 'US',
+              },
+              areaServed: [
+                {
+                  '@type': 'City',
+                  name: 'Potomac',
+                },
+                {
+                  '@type': 'City',
+                  name: 'Gaithersburg',
+                },
+                {
+                  '@type': 'City',
+                  name: 'Rockville',
+                },
+                {
+                  '@type': 'City',
+                  name: 'Frederick',
+                },
+              ],
+              priceRange: '$$',
+              serviceType: 'Automotive Window Tinting',
+            }),
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col">
         <SmoothScroll>
           <Header />

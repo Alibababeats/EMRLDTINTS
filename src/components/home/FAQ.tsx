@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import Link from 'next/link'
 
 const faqs = [
   {
@@ -106,9 +107,12 @@ export default function FAQ() {
           <h2 className="heading-lg mb-4">
             Maryland Tint Law <span className="text-emerald">&amp; FAQs</span>
           </h2>
-          <p className="text-muted max-w-xl mx-auto">
+          <p className="text-muted max-w-xl mx-auto mb-4">
             Everything you need to know before and after your tint installation.
           </p>
+          <Link href="/about" className="text-emerald hover:text-emerald/80 transition-colors text-sm">
+            Learn more about our team and process →
+          </Link>
         </div>
 
         <div className="max-w-3xl mx-auto flex flex-col gap-4">

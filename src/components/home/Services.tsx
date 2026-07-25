@@ -71,7 +71,7 @@ export default function Services() {
               <h3 className="heading-md mb-4">{service.title}</h3>
               <p className="text-muted mb-6">{service.description}</p>
               <span className="text-emerald font-medium group-hover:translate-x-2 transition-transform duration-300 inline-flex items-center gap-2">
-                Learn More
+                {service.title === 'Window Tinting' ? 'View Car Tinting Services' : 'View Tint Removal Details'}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

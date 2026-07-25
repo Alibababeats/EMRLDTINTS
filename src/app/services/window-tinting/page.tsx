@@ -4,8 +4,15 @@ import Image from 'next/image'
 import CTASection from '@/components/home/CTASection'
 
 export const metadata: Metadata = {
-  title: 'Window Tinting Services | Emerald Window Tinting Germantown MD',
-  description: 'Premium ceramic and carbon window tinting in Germantown, MD. PureMax Supreme Carbon & KOOLMAX Supreme Ceramic films. 99% UV protection, heat rejection, crystal clarity.',
+  title: 'Car Window Tinting in Potomac & Gaithersburg, MD | Emerald',
+  description: 'Professional automotive window tinting serving Potomac, Gaithersburg, Rockville & Frederick, MD. Ceramic & carbon film, expert install. Get a quote today.',
+  alternates: {
+    canonical: 'https://emeraldwindowtinting.com/services/window-tinting',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 const features = [

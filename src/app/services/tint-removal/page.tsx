@@ -4,8 +4,15 @@ import Image from 'next/image'
 import CTASection from '@/components/home/CTASection'
 
 export const metadata: Metadata = {
-  title: 'Window Tint Removal Services | Emerald Window Tinting Germantown MD',
-  description: 'Professional window tint removal in Germantown, MD. Safe, clean removal of old or damaged window film without scratching glass. Expert service with attention to detail.',
+  title: 'Window Tint Removal in Potomac & Rockville, MD | Emerald',
+  description: 'Safe, scratch-free window tint removal for cars in Potomac, Rockville, Gaithersburg & Frederick, MD. Old tint stripped and ready for a fresh install.',
+  alternates: {
+    canonical: 'https://emeraldwindowtinting.com/services/tint-removal',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 const features = [

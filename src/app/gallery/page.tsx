@@ -4,8 +4,15 @@ import Link from 'next/link'
 import GalleryGrid from './GalleryGrid'
 
 export const metadata: Metadata = {
-  title: 'Gallery | Emerald Window Tinting Germantown MD',
-  description: 'View our portfolio of professional window tinting work in the DMV area. Ceramic and carbon tint on luxury vehicles, SUVs, trucks, and more.',
+  title: 'Tint Gallery | Car Window Tinting Photos – Potomac, MD',
+  description: 'See real results from Emerald Window Tinting — car tint installs for clients across Potomac, Gaithersburg, and Rockville, MD.',
+  alternates: {
+    canonical: 'https://emeraldwindowtinting.com/gallery',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 // Gallery images - add more as they become available

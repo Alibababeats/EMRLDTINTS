@@ -4,8 +4,15 @@ import Link from 'next/link'
 import CTASection from '@/components/home/CTASection'
 
 export const metadata: Metadata = {
-  title: 'About Us | Emerald Window Tinting Germantown MD',
-  description: 'Learn about Emerald Window Tinting, the DMV\'s trusted window tinting specialists. Quality films, precision installation, customer-first service in Germantown, MD.',
+  title: 'About Emerald Window Tinting | Potomac, MD Auto Tint Pros',
+  description: 'Emerald Window Tinting is a local automotive tint shop serving Potomac, Gaithersburg, and the surrounding Maryland area. Learn about our process and team.',
+  alternates: {
+    canonical: 'https://emeraldwindowtinting.com/about',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 const values = [

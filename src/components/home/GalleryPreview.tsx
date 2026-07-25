@@ -67,7 +67,7 @@ export default function GalleryPreview() {
 
         <div className="text-center mt-12">
           <Link href="/gallery" className="btn-glass inline-flex items-center gap-2">
-            See All Work
+            View Car Window Tinting Gallery
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

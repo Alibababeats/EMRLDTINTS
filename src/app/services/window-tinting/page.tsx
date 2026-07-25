@@ -113,7 +113,7 @@ export default function WindowTinting() {
 
             {/* C2 Nano Ceramic */}
             <div className="glass-card-hover p-8">
-              <h3 className="heading-md mb-4 text-emerald">C2 Nano - Ceramic</h3>
+              <h3 className="heading-md mb-4 text-emerald">Koolmax nano - Ceramic</h3>
               <p className="text-muted mb-6">
                 Better optical clarity, and mainly for customers who want longevity and main focus is heat rejection, privacy is a plus. 
                 It is a great investment for your car long term as well!
